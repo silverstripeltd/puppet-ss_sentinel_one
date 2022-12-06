@@ -19,7 +19,7 @@ class ss_sentinel_one::agent inherits ::ss_sentinel_one {
   }
 
   # The setup and configuration utilises the custom facts
-  if $facts['sentinel_one'] != 'Enabled' {
+  if $ss_sentinel_one::enable and $ss_sentinel_one::site_token != '' and $facts['sentinel_one'] != 'Enabled' {
     if $ss_sentinel_one::http_proxy != '' {
       exec { 'management_proxy':
         command => "sentinelctl management proxy set ${ss_sentinel_one::http_proxy}",

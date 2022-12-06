@@ -1,7 +1,8 @@
 class ss_sentinel_one (
-  $site_token,
   $download_url,
+  $site_token = '',
   $http_proxy = '',
+  $enable = true,
 ) {
   class { 'ss_sentinel_one::agent': }
 }
